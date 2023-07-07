@@ -6,6 +6,7 @@ print("Reversed list - ",dummy_list)
 
 
 #reversing a list using for loop within the list
+# How do you reverse an array in place?
 dummy_list2 = [1,2,6,9,3]
 print("Original list - ",dummy_list2)
 for i in range((len(dummy_list2)//2)+1): #iterates from i=0 to i=3
