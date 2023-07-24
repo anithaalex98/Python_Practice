@@ -20,6 +20,7 @@ class LinkedList:
         newval = Node(data)
         newval.nextval = self.head
         self.head = newval
+        print("Successfully inserted data ",data," in linked list - ")
     
     def insertAtEnd(self,data):
         newval = Node(data)
@@ -33,6 +34,7 @@ class LinkedList:
                 else:
                     iteratehead = iteratehead.nextval
             iteratehead.nextval = newval
+        print("Successfully inserted data ",data," in linked list - ")
     
     def insertInBetween(self,middledata,data):
         newval = Node(data)
@@ -51,6 +53,7 @@ class LinkedList:
             
             newval.nextval = iteratehead.nextval
             iteratehead.nextval = newval
+        print("Successfully inserted data ",data," in linked list - ")
     
     def deleteNodeByValue(self, data):
         if self.head is None:
@@ -73,6 +76,27 @@ class LinkedList:
             else: #If data is the first node data
                 self.head = iteratehead.nextval
             iteratehead = None
+            print("Successfully Deleted data ",data," in linked list - ")
+
+    #Reverse the liked list
+    #Given the pointer to the head node of a linked list, change the next pointers of the nodes so that their order is reversed.
+    def reverseLinkedList(self): 
+        if self.head is not None:
+            rhead = self.head
+            prev = None
+            curr = rhead
+            
+            while curr is not None:            
+                nexxt = curr.nextval
+                curr.nextval = prev
+                prev = curr
+                curr = nexxt
+                rhead = prev
+            
+            self.head = rhead
+            print("Successfully Reversed linked list - ")
+            self.printLinkedList()
+        
     
 list1 = LinkedList()
 list1.head = Node("B")
@@ -88,3 +112,4 @@ list1.insertInBetween("C","D")
 list1.printLinkedList()
 list1.deleteNodeByValue("A")
 list1.printLinkedList()
+list1.reverseLinkedList()
